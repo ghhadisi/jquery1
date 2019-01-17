@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            //找出body下面的子div
+            $("#btn1").click(function () {
+                $("body > div").css("background-color","palegreen");
+            })
+
+            //找出body下面的所有div
+            $("#btn2").click(function () {
+                $("body  div").css("background-color","palegreen");
+
+            })
+
+            //找出id为one的相邻兄弟div
+            $("#btn3").click(function () {
+                $("#one+div").css("background-color","palegreen");
+            })
+
+            //找出id为two的所有弟弟div
+            $("#btn4").click(function () {
+                $("#two~div").css("background-color","palegreen");
+
+            })
+        })
+
+    </script>
+
+</head>
+<body>
+<input type="button" value="找出body下面的子div" id="btn1" />
+<input type="button" value="找出body下面的所有div" id="btn2" />
+<input type="button" value="找出id为one的相邻兄弟div" id="btn3" />
+<input type="button" value="找出id为two的所有弟弟div" id="btn4" />
+
+
+<br />
+<div id="one">
+    <div class="mini">1-1</div>
+</div>
+<div id="two">
+    <div class="mini">2-1</div>
+    <div class="mini">2-2</div>
+</div>
+<div id="three">
+    <div class="mini">3-1</div>
+    <div class="mini">3-2</div>
+    <div class="mini">3-3</div>
+</div>
+<span id="four">span</span>
+</body>
+</html>

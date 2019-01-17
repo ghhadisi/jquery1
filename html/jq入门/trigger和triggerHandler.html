@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript">
+        
+        $(function () {
+
+            $("#username").focus(function () {
+                console.log("text focus被触发了")
+
+            })
+            $("#btn1").click(function () {
+                $("#username").trigger("focus")
+            })
+
+            $("#btn2").click(function () {
+                $("#username").triggerHandler("focus")
+            })
+        })
+        
+        </script>
+</head>
+<body>
+<input type="text" id="username" />
+<input type="button" value="trigger一下text的focus" id="btn1"/>
+<input type="button" value="triggerHandler一下text的focus" id="btn2"/>
+</body>
+</html>

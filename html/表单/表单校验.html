@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript">
+
+        // 1. 首先给必填项,添加尾部添加一个小红点
+        // 2. 获取用户输入的信息,做相应的校验
+        // 3. 事件: 获得焦点, 失去焦点, 按键抬起
+        // 4. 表单提交的事件
+        //
+        // Jq的方式来实现:
+        //     1. 导入JQ的文件
+        // 2. 文档加载事件: 在必填项后天加一个小红点
+        // 3. 表单校验确定事件: blur focus keyup
+        // 4. 提交表单 submit
+        $(function () {
+            $(".bitian").after("<font class='high' style='color: red'>*</font>")
+
+
+            $(".bitian").blur(function () {
+                var value = this.value
+                $(this).parent().find('.formtips').remove()
+                if ($(this).is("#username")){
+                    if (value.length < 6){
+                        $(this).parent().append("<span class='formtips onError' style='color: red'>密码太短了</span>")
+                        return false
+
+                    }else {
+                        $(this).parent().append("<span class='formtips onSuccess' style='color: green'>密码够用</span>")
+                    }
+                }
+
+
+                if($(this).is("#password")){  //判断是否是密码输入项
+                    if(value.length < 6){
+                        $(this).parent().append("<span class='formtips onError'>,密码太短了</span>");
+                        return false
+                    }else{
+                        $(this).parent().append("<span class='formtips onSuccess'>密码够用</span>");
+                    }
+                }
+                return true
+            }).focus(function () {
+                $(this).triggerHandler("blur")
+            }).keyup(function () {
+                $(this).triggerHandler("blur")
+            })
+            
+            
+            $("form").submit(function () {
+
+                var  flag = $('.bitian').trigger('focus')
+                console.log(typeof (flag))
+                //触发所有必填项的校验
+                $(".bitian").trigger("focus");
+                //找到错误信息的个数
+                if($(".onError").length > 0){
+                    return false;
+                }
+                return true;
+
+            })
+        })
+
+    </script>
+</head>
+<body>
+
+<form action="../jq入门/trigger和triggerHandler.html">
+    <div>
+        用户名:<input type="text" class="bitian" id="username" />
+    </div>
+    <div>
+        密码:<input type="password"  class="bitian" id="password" />
+    </div>
+    <div>
+        手机号:<input type="tel" />
+    </div>
+    <div>
+        <input type="submit" />
+    </div>
+</form>
+</body>
+</html>

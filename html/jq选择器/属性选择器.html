@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+
+    <script type="text/javascript">
+
+        $(function () {
+            // $("a[href]").css("background-color","palegreen")
+            // $("a[href][title]").css("background-color","palegreen")
+            $("a[href][title='testTitle']").css("color","deeppink");  //多个属性 ,并且指定值
+
+        })
+    </script>
+</head>
+<body>
+
+</body>
+<a href="#">herf 111</a>
+<br />
+<a href="#" title="testTitle">herf 222</a>
+</html>

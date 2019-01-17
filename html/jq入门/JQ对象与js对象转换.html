@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            console.error("init")
+        });
+        
+        function changeJS() {
+            var div = document.getElementById("div1")
+            // div.innerHTML = "JS成功修改了内容"
+            $(div).html("转成JQ对象来修改内容")
+        }
+
+
+        $(function () {
+            $("#btn2").click(function () {
+                var $div = $("#div2")
+                // var jsDiv = $div[0]
+                var jsDiv = $div.get(0)
+                jsDiv.innerHTML= "jq转成JS对象成功";
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="button" value="JS修改div内容" onclick="changeJS()"/>
+    <input type="button" value="JQ方式修改div内容" id="btn2"/>
+    <div id="div1">
+        这里的内容一会要被JS/JQ代码修改掉
+    </div>
+    <div id="div2">
+        这里的内容一会要被JS/JQ代码修改掉1111
+    </div>
+</body>
+</html>

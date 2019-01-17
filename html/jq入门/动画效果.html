@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script type="text/javascript" src="../../js/jquery-1.11.0.js"></script>
+
+    <script type="text/javascript" >
+        $(function () {
+            $("#btn1").click(function () {
+                // $("#img1").show(3000)
+
+                // $("#img1").slideDown()
+
+                // $("#img1").fadeIn(3000)
+
+                $("#img1").animate({ width:"800px",opacity:"1"},5000);
+
+            })
+
+
+
+            $("#btn2").click(function () {
+                // $("#img1").hide(4000)
+
+                // $("#img1").slideUp(1000)
+
+                // $("#img1").fadeOut(2000)
+
+
+                $("#img1").animate({ width:"1366px",opacity:"0.2"},5000);
+
+            })
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="显示" id="btn1" />
+<input type="button" value="隐藏" id="btn2"/> <br />
+<img src="../../img/333.png" id="img1" width="500px" />
+</body>
+</html>
