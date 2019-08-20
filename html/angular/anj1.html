@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<input lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="../../js/angularjs/angular.min.js" ></script>
+
+    <script>
+        var  app = angular.module('myApp', []);//定义了一个叫myApp的模块
+
+        //定义控制器
+        app.controller('myController',function ($scope) {
+                $scope.add=function () {
+                    return   parseInt($scope.x ) + parseInt($scope.y);
+                }
+
+                $scope.add1=function () {
+                    $scope.z1 = parseInt($scope.x1 ) + parseInt($scope.y1);
+                }
+            $scope.list= [100,192,203,434 ];//定义数组
+            $scope.users= [
+                {name:'张三',shuxue:100,yuwen:93},
+                {name:'李四',shuxue:88,yuwen:87},
+                {name:'王五',shuxue:77,yuwen:56}
+            ];//定义数组
+        });
+    </script>
+</head>
+<body ng-app="myApp" ng-init="myName='陈大小孩'" ng-controller="myController">
+<input type="text" ng-model="myName">
+{{myName}}<br/>
+
+<input type="text" ng-model="x"> + <input type="text" ng-model="y">  ={{add()}}<br/>
+
+<input type="text" ng-model="x1"> + <input type="text" ng-model="y1">  <button ng-click="add1()"> = </button> {{z1}}<br/>
+<table>
+    <tr ng-repeat="x in list">
+        <td>{{x}}</td>
+    </tr>
+</table>
+
+<table>
+    <thead>
+        <td>姓名</td>
+        <td>数学</td>
+        <td>语文</td>
+    </thead>
+    <tr ng-repeat="user in users">
+        <td>{{user.name}}</td>
+        <td>{{user.shuxue}}</td>
+        <td>{{user.yuwen}}</td>
+
+    </tr>
+</table>
+</body>
+</html>
